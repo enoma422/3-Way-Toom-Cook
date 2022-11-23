@@ -1,3 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "fq.h"
+
 // ---------------------------------------------
 // Toom-Cook 3 Way multiplication
 // ---------------------------------------------
