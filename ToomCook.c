@@ -3,6 +3,8 @@
 #include <time.h>
 #include "fq.h"
 
+#define w 8
+
 // ---------------------------------------------
 // Toom-Cook 3 Way multiplication
 // ---------------------------------------------
@@ -14,14 +16,13 @@ void mul_TC(fmpz_t out, fmpz_t a, fmpz_t b){
         fmpz_mul(out, a, b);
         return;
     }
-
-    slong l = (MAX(n, m) + 1) / 3;
-    slong lw = l * w;
-    slong lw2 = lw * 2;
     
     // --------------------------------------------------------------------------------------------
     // Step 1: splitting
     // --------------------------------------------------------------------------------------------
+    slong l = (MAX(n, m) + 1) / 3;
+    slong lw = l * w;
+    slong lw2 = lw * 2;
     // input a, b를 3파트로 분할
     // a = a2 * 2^{lw * 2} + a1 * 2^{lw} + a0
     // b = b2 * 2^{lw * 2} + b1 * 2^{lw} + b0
